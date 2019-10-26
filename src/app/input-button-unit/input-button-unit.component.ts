@@ -30,6 +30,7 @@ export class InputButtonUnitComponent implements OnInit {
     setTimeout(() => {
       this.title = 'This is not the title you are looking for';
     }, 3000);
+    console.log('here')
 
   }
 
