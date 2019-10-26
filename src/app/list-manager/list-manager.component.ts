@@ -36,7 +36,14 @@ export class ListManagerComponent implements OnInit {
   title = 'todo-list';
 
   addItem(title: string){
-    this.todoList.push({ title })
+    const hasItem = this.todoList.find(item => item.title === title)
+    if(hasItem){
+      alert("This is already on your list!")
+    }  else {
+      this.todoList.push({ title })
+    }
+
+
   }
 
   removeItem(item){
