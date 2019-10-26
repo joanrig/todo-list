@@ -9,10 +9,9 @@ import { Component, OnInit } from '@angular/core';
       The title is: {{ title }}
     </p>
 
-    <input [value]="title">
-    <button (click)="changeTitle('Button Clicked!')">
-      Save
-    </button>
+    <input [value]="title"
+          (keyup)="changeTitle('Button Clicked!')">
+
   `,
   styleUrls: ['./input-button-unit.component.css']
 })
