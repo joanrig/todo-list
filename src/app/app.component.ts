@@ -15,6 +15,6 @@ import { TodoItem } from './interfaces/todo-item'
 
 export class AppComponent {
 
-  title = "Joan's list manager"
+  title = "Joan's ToDo list"
 
 }

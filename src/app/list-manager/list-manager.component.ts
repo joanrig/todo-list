@@ -9,7 +9,6 @@ import { TodoListService } from '../services/todo-list.service';
 
     <div class="todo-app">
       <todo-input-button-unit (submit)="addItem($event)"></todo-input-button-unit>
-
       <ul>
         <li *ngFor="let todoItem of todoList">
           <todo-todo-item
@@ -36,6 +35,17 @@ export class ListManagerComponent implements OnInit {
   title = 'todo-list';
 
   addItem(title: string){
+    const count = this.todoList.reduce((acc, item) => acc + (!item.completed ? 1 : 0), 0)
+
+    console.log(count)
+
+    if(count > 1){
+      console.log('count is greater than 5')
+      alert(`You already have ${count} incomplete items on your list, are you sure you want to add more?`)
+    }
+
+
+
     const hasItem = this.todoList.find(item => item.title === title)
     if(hasItem){
       alert("This is already on your list!")
