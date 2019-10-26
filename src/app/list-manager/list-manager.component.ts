@@ -31,7 +31,7 @@ export class ListManagerComponent implements OnInit {
   title = 'todo-list';
 
   addItem(title: string){
-    this.todoList.addItem({ title })
+    this.todoList.push({ title })
   }
 
 }
