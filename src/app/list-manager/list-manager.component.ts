@@ -34,12 +34,15 @@ export class ListManagerComponent implements OnInit {
 
   title = 'todo-list';
 
+  countItems(list){
+      return list.reduce((acc, item) => acc + (!item.completed ? 1 : 0), 0)
+  }
+
+
   addItem(title: string){
-    const count = this.todoList.reduce((acc, item) => acc + (!item.completed ? 1 : 0), 0)
+    const count = countItems(this.todoList)
 
-    console.log(count)
-
-    if(count > 1){
+    if(count > 3){
       console.log('count is greater than 5')
       alert(`You already have ${count} incomplete items on your list, are you sure you want to add more?`)
     }
@@ -62,6 +65,10 @@ export class ListManagerComponent implements OnInit {
 
   updateItem(item, changes){
     this.todoListService.updateItem(item, changes)
+    const count = countItems(this.todoList)
+    if(count === 0){
+      alert('Nothing left to do!')
+    }
   }
 
 }
